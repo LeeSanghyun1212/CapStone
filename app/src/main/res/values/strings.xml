@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">TEst2</string>
+    <string name="some_id">
+        로딩중
+    </string>
+    <string name="graduation">
+        Graduation
+    </string>
+    <string name="helper">
+        Helper
+    </string>
+    <string name="title_activity_loading">loading</string>
+    <string name="student_id">
+        Student ID
+    </string>
+</resources>
