@@ -18,7 +18,7 @@ class loadingActivity : AppCompatActivity() {
     private fun loadingStart() {
         val handler = Handler(Looper.getMainLooper())
         handler.postDelayed({
-            val intent = Intent(applicationContext, registerActivity::class.java)
+            val intent = Intent(applicationContext, loginActivity::class.java)
             startActivity(intent)
             finish()
         }, 2000)
