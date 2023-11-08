@@ -13,4 +13,6 @@
     <string name="student_id">
         Student ID
     </string>
+    <string name="helloword">Button</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>
