@@ -36,11 +36,10 @@ class loginActivity : AppCompatActivity() {
                         Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
 
                         // 메인  부탁해요
-                        val intent = Intent(this, RegisterActivity::class.java)
-                        startActivity(intent)
+                        //val intent = Intent(this, RegisterActivity::class.java)
+                       // startActivity(intent)
 
-                        // 현재 액티비티를 종료합니다.
-                        finish()
+
                     } else {
                         // 로그인 실패
                         Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()
