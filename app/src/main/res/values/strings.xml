@@ -15,4 +15,8 @@
     </string>
     <string name="helloword">Button</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="uiid"> \u00EC\u009D\u00B4\u00EB\u00A6\u0084 </string>
+
+
+    <!-- 다른 문자열 리소스가 있을 경우 이곳에 추가 -->
 </resources>

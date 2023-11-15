@@ -1,0 +1,17 @@
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="315dp"
+    android:height="60dp"
+    android:viewportWidth="315"
+    android:viewportHeight="60">
+
+    <group>
+        <clip-path android:pathData="M0 0H315V60H0V0Z"/>
+        <!-- 더 둥근 경로를 정의하는 예시입니다. -->
+        <path
+            android:pathData="M10,5 L305,5 Q315,5 315,15 L315,45 Q315,55 305,55 L10,55 Q0,55 0,45 L0,15 Q0,5 10,5Z"
+            android:fillColor="#DFE1E7"/>
+    </group>
+
+</vector>

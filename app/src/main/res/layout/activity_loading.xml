@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".loginActivity">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="252.06dp"
-        android:layout_height="232.4dp"
-        android:layout_marginTop="120dp"
+        android:layout_width="299dp"
+        android:layout_height="275dp"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="80dp"
         android:src="@drawable/logo2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,12 +20,12 @@
 
     <TextView
         android:id="@+id/graduation"
-        android:layout_width="162dp"
-        android:layout_height="62dp"
+        android:layout_width="227dp"
+        android:layout_height="65dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="452dp"
-        android:fontFamily="@font/dongle"
+        android:fontFamily="@font/kaushan"
         android:gravity="top"
         android:text="@string/graduation"
         android:textAppearance="@style/graduation"
@@ -35,17 +35,17 @@
 
     <TextView
         android:id="@+id/Helper"
-        android:layout_width="102dp"
-        android:layout_height="60dp"
+        android:layout_width="160dp"
+        android:layout_height="89dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="512dp"
-        android:fontFamily="@font/dongle"
+        android:layout_marginTop="516dp"
+        android:fontFamily="@font/kaushan"
         android:gravity="top"
         android:text="@string/helper"
         android:textAppearance="@style/helper"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.566"
+        app:layout_constraintHorizontal_bias="0.633"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 

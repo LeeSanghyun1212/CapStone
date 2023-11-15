@@ -20,4 +20,14 @@
         <item name="android:shadowDy">4</item>
         <item name="android:shadowRadius">4</item>
     </style>
+    <style name="uiid">
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textColor">#14304A</item>
+    </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- 다른 속성들... -->
+        <item name="android:statusBarColor">#FFFFFF</item> <!-- 흰색으로 변경 -->
+    </style>
+        <!-- 추가적인 스타일 설정을 원한다면 이 곳에 추가 -->
 </resources>
