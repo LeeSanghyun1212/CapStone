@@ -37,7 +37,7 @@ class loginActivity : AppCompatActivity() {
                         if (task.isSuccessful) {
                             // 로그인 성공
                             Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(this, MainActivity::class.java)
+                            val intent = Intent(this, ChoiceActivity::class.java)
                             startActivity(intent)
                             // 현재 액티비티를 종료합니다.
                             finish()
@@ -47,12 +47,6 @@ class loginActivity : AppCompatActivity() {
                         }
                     }
             }
-        }
-        //회원가입 버튼 클릭시 회원가입으로 이동
-        val button: Button = findViewById(R.id.btn_register)
-        button.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
         }
     }
 }
