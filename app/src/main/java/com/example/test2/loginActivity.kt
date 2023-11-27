@@ -48,5 +48,13 @@ class loginActivity : AppCompatActivity() {
                     }
             }
         }
+        //회원가입 버튼 클릭시 회원가입으로 이동
+        val button: Button = findViewById(R.id.btn_register)
+        button.setOnClickListener {
+            Toast.makeText(this,"hi",Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+
+        }
     }
 }
