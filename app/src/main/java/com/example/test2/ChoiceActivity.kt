@@ -1,72 +1,111 @@
 package com.example.test2
 
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.CheckBox
+import android.view.View
+import android.widget.ListView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.auth.FirebaseAuth
+import android.widget.Spinner
+import android.widget.AdapterView
 import java.io.Serializable
 
 class ChoiceActivity : AppCompatActivity() {
 
-    // Firebase 참조 설정
+    private lateinit var firstYearSubjectsList: ListView
+    private lateinit var submit_button: Button
     private val db = FirebaseFirestore.getInstance()
-
+    private val checkedItemsMap: MutableMap<Int, List<Pair<String, String>>> = mutableMapOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_choice)
 
-        val checkBox1 = findViewById<CheckBox>(R.id.checkBox)
-        val checkBox2 = findViewById<CheckBox>(R.id.checkBox2)
-        val checkBox3 = findViewById<CheckBox>(R.id.checkBox3)
+        submit_button = findViewById(R.id.submit_button)
 
-        val submitButton = findViewById<Button>(R.id.submit_button)
+        firstYearSubjectsList = findViewById(R.id.firstYearSubjectsList)
+        val spinner: Spinner = findViewById(R.id.spinner)
 
-        submitButton.setOnClickListener {
-            val selectedOptions = mutableListOf<HashMap<String, String>>()
+        val items = resources.getStringArray(R.array.my_array)
+        val gradeAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, items)
+        spinner.adapter = gradeAdapter
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View,
+                position: Int,
+                id: Long
+            ) {
+                checkedItemsMap[position] = (firstYearSubjectsList.adapter as? CustomAdapter)?.getCheckedItems()
+                    ?: emptyList()
+                when (position) {
+                    0 -> {
+                        val firstgrade = listOf(
+                            "전산수학" to "1학점",
+                            "공학설계" to "2학점",
+                            "생명공학" to "3학점",
+                            "fda" to "4",
+                            "fdafa" to "5",
+                        )
+                        // ListView에 과목들을 보여줄 어댑터 설정
+                        val adapter = CustomAdapter(this@ChoiceActivity, firstgrade)
+                        firstYearSubjectsList.adapter = adapter
+                    }
+                    1 -> {
+                        val secondgrade = listOf(
+                            "제어프로그래밍" to "1학점"
 
-            if (checkBox1.isChecked) {
-                val option = hashMapOf(
-                    "text" to checkBox1.text.toString(),
-                    "value" to (checkBox1.tag?.toString() ?: "")
-                )
-                selectedOptions.add(option)
+                        )
+                        val adapter = CustomAdapter(this@ChoiceActivity, secondgrade)
+                        firstYearSubjectsList.adapter = adapter
+                    }
+                    // ... 다른 학년 선택 시 로직 추가
+                    else -> {
+                        // Handle other selections
+                    }
+                }
+                val savedCheckedItems = checkedItemsMap[position]
+                if (savedCheckedItems != null) {
+                    val adapter = CustomAdapter(this@ChoiceActivity, savedCheckedItems)
+                    firstYearSubjectsList.adapter = adapter
+                }
             }
 
-            if (checkBox2.isChecked) {
-                val option = hashMapOf(
-                    "text" to checkBox2.text.toString(),
-                    "value" to (checkBox2.tag?.toString() ?: "")
-                )
-                selectedOptions.add(option)
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // Handle case where nothing is selected
             }
 
-            if (checkBox3.isChecked) {
-                val option = hashMapOf(
-                    "text" to checkBox3.text.toString(),
-                    "value" to (checkBox3.tag?.toString() ?: "")
-                )
-                selectedOptions.add(option)
-            }
-
+        }
+        submit_button.setOnClickListener {
+            val selectedOptions = (firstYearSubjectsList.adapter as CustomAdapter).getCheckedItems()
             sendToFirebase(selectedOptions)
+            Toast.makeText(this, "저장완료", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun sendToFirebase(selectedOptions: List<HashMap<String, String>>) {
-        val data = hashMapOf(
-            "과목" to selectedOptions,
+    private fun sendToFirebase(selectedOptions: List<Pair<String, String>>) {
+        val data = hashMapOf<String, Any>()
 
-            )
+        val subjectMapList = selectedOptions.map { mapOf("과목" to it.first, "학점" to it.second) }
 
-        // 'graduate' 컬렉션에 데이터 추가
-        db.collection("graduate")
-            .add(data)
-            .addOnSuccessListener { documentReference ->
-                println("DocumentSnapshot added with ID: ${documentReference.id}")
-            }
-            .addOnFailureListener { e ->
-                println("Error adding document: $e")
-            }
+        data["grade"] = subjectMapList
+
+        // Firebase에 데이터 추가
+        val currentUserUid = FirebaseAuth.getInstance().currentUser?.uid
+        if (currentUserUid != null) {
+            db.collection("users")
+                .document(currentUserUid)
+                .collection("Graduate")
+                .add(data)
+                .addOnSuccessListener { documentReference ->
+                    println("DocumentSnapshot added with ID: ${documentReference.id}")
+                }
+                .addOnFailureListener { e ->
+                    println("Error adding document: $e")
+                }
+        }
     }
 }
