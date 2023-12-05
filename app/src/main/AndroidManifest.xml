@@ -39,7 +39,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity" />
-
+        <activity android:name=".Test2"/>
         <activity
             android:name=".ChoiceActivity"
             android:exported="true">

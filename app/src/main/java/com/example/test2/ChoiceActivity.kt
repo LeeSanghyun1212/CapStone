@@ -20,6 +20,7 @@ class ChoiceActivity : AppCompatActivity() {
     private lateinit var submit_button: Button
     private val db = FirebaseFirestore.getInstance()
     private val checkedItemsMap: MutableMap<Int, List<Pair<String, String>>> = mutableMapOf()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_choice)
@@ -39,8 +40,6 @@ class ChoiceActivity : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-                checkedItemsMap[position] = (firstYearSubjectsList.adapter as? CustomAdapter)?.getCheckedItems()
-                    ?: emptyList()
                 when (position) {
                     0 -> {
                         val firstgrade = listOf(
@@ -66,11 +65,6 @@ class ChoiceActivity : AppCompatActivity() {
                     else -> {
                         // Handle other selections
                     }
-                }
-                val savedCheckedItems = checkedItemsMap[position]
-                if (savedCheckedItems != null) {
-                    val adapter = CustomAdapter(this@ChoiceActivity, savedCheckedItems)
-                    firstYearSubjectsList.adapter = adapter
                 }
             }
 

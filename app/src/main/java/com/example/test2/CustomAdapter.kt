@@ -16,6 +16,7 @@ class CustomAdapter(private val context: Context, private val items: List<Pair<S
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var convertView = convertView
         val viewHolder: ViewHolder
+
         if (convertView == null) {
             viewHolder = ViewHolder()
             val inflater = LayoutInflater.from(context)
@@ -28,12 +29,12 @@ class CustomAdapter(private val context: Context, private val items: List<Pair<S
         }
 
         val currentItem = getItem(position)
-        viewHolder.textViewItem!!.text = "${currentItem?.first} : ${currentItem?.second}"
+        viewHolder.textViewItem?.text = "${currentItem?.first} : ${currentItem?.second}"
 
-        viewHolder.checkBox!!.setOnCheckedChangeListener(null)
-        viewHolder.checkBox!!.isChecked = checkedPositions.contains(position)
+        viewHolder.checkBox?.setOnCheckedChangeListener(null)
+        viewHolder.checkBox?.isChecked = checkedPositions.contains(position)
 
-        viewHolder.checkBox!!.setOnCheckedChangeListener { _, isChecked ->
+        viewHolder.checkBox?.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 if (!checkedPositions.contains(position)) {
                     checkedPositions.add(position)
