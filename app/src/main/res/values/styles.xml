@@ -29,5 +29,11 @@
         <!-- 다른 속성들... -->
         <item name="android:statusBarColor">#FFFFFF</item> <!-- 흰색으로 변경 -->
     </style>
+    <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- 추가 버튼 색상 변경 -->
+        <item name="colorAccent">#000000</item>
+        <!-- 취소 버튼 색상 변경 -->
+        <item name="android:colorControlNormal">#000000</item>
+    </style>
         <!-- 추가적인 스타일 설정을 원한다면 이 곳에 추가 -->
 </resources>

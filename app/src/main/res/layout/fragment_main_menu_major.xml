@@ -90,7 +90,7 @@
             android:background="@drawable/rceyclerview_border"
             app:layout_constraintBottom_toTopOf="@+id/grade2_2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.458"
+            app:layout_constraintHorizontal_bias="0.416"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/grade2_1"
             app:layout_constraintVertical_bias="0.0" />
@@ -216,14 +216,15 @@
 
         <Button
             android:id="@+id/Confirmbtn"
-            android:layout_width="264dp"
-            android:layout_height="66dp"
+            android:layout_width="133dp"
+            android:layout_height="46dp"
             android:backgroundTint="#3E3E3E"
             android:text="저장하기"
             android:textColor="@color/white"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/textView"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.065"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gradeculture"
             app:layout_constraintVertical_bias="0.701" />
@@ -235,6 +236,33 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Confirmbtn" />
+
+        <TextView
+            android:id="@+id/ccc"
+            android:layout_width="117dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="24dp"
+            android:text="미포함 교양 : "
+            android:textSize="20dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.181"
+            app:layout_constraintStart_toEndOf="@+id/Confirmbtn"
+            app:layout_constraintTop_toBottomOf="@+id/subject_list_8" />
+
+        <EditText
+            android:id="@+id/ff"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:textSize="28dp"
+
+            android:saveEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.319"
+            app:layout_constraintStart_toEndOf="@+id/ccc"
+            app:layout_constraintTop_toBottomOf="@+id/subject_list_8" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

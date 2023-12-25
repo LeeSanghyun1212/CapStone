@@ -16,6 +16,8 @@ private const val TAG_MAJOR = "major_fragment"
 private const val TAG_CULTURE = "culture_fragment"
 private const val TAG_SCHEDULE = "schedule_fragment"
 class SharedViewModel : ViewModel() {
+    val checkedSubjects = MutableLiveData<List<Subject>>()
+    val checkedSubjects2 = MutableLiveData<List<Subject2>>()
     // LiveData로 선언된 변수들
     private val _totalMajorScore = MutableLiveData<Double>()
     val totalMajorScoreLiveData: LiveData<Double>
@@ -36,6 +38,14 @@ class SharedViewModel : ViewModel() {
     private val _totalScore = MutableLiveData<Double>()
     val totalScore: LiveData<Double>
         get() = _totalScore
+
+    private val _totalculture = MutableLiveData<Double>()
+    val totalculture: LiveData<Double>
+        get() = _totalculture
+
+    private val _totalCultureScoreLiveData = MutableLiveData<Double>()
+    val totalCultureScoreLiveData2: LiveData<Double>
+        get() = _totalCultureScoreLiveData
     // 각 LiveData 값을 업데이트하는 함수
     fun updateTotalMajorScore(score: Double) {
         _totalMajorScore.value = score
@@ -52,9 +62,13 @@ class SharedViewModel : ViewModel() {
     fun updateTotalCultureScore(score: Double) {
         _totalCultureScore.value = score
     }
+    fun updateTotalculture(score: Double) {
+        _totalculture.value = score
+    }
     fun updateTotalScore(score: Double) {
         _totalScore.value = score
     }
+
 }
 class NaviActivity : AppCompatActivity() {
     private lateinit var binding : ActivityNaviBinding

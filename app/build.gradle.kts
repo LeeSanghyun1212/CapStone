@@ -56,6 +56,7 @@ android {
 }
 
 dependencies {
+    implementation("androidx.lifecycle:lifecycle-viewmodel:2.4.0")
     implementation("androidx.fragment:fragment-ktx:1.4.0")
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation(platform("com.google.firebase:firebase-bom:32.5.0"))
