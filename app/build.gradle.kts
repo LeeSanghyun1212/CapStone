@@ -50,9 +50,13 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 dependencies {
+    implementation("androidx.fragment:fragment-ktx:1.4.0")
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation(platform("com.google.firebase:firebase-bom:32.5.0"))
     implementation("com.google.firebase:firebase-analytics")

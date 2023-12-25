@@ -12,22 +12,37 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/guide"
+            android:layout_width="225dp"
+            android:layout_height="43dp"
+            android:background="@drawable/border2"
+            android:breakStrategy="simple"
+            android:gravity="center"
+            android:text="수강한 강의를 선택해주세요 "
+            android:textSize="16dp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
             android:id="@+id/grade1_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="1학년 1학기"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/guide" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/subject_list_1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="390dp"
+            android:layout_height="201dp"
+            android:background="@drawable/rceyclerview_border"
             app:layout_constraintBottom_toTopOf="@+id/grade1_2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/grade1_1"
             app:layout_constraintVertical_bias="0.0" />
@@ -36,7 +51,7 @@
             android:id="@+id/grade1_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="212dp"
+            android:layout_marginTop="276dp"
             android:gravity="center"
             android:text="1학년 2학기"
             app:layout_constraintEnd_toEndOf="parent"
@@ -46,11 +61,12 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/subject_list_2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="389dp"
+            android:layout_height="197dp"
+            android:background="@drawable/rceyclerview_border"
             app:layout_constraintBottom_toTopOf="@+id/grade2_1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.478"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/grade1_2"
             app:layout_constraintVertical_bias="0.0" />
@@ -59,7 +75,7 @@
             android:id="@+id/grade2_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="404dp"
+            android:layout_marginTop="504dp"
             android:gravity="center"
             android:text="2학년 1학기"
             app:layout_constraintEnd_toEndOf="parent"
@@ -69,20 +85,21 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/subject_list_3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="387dp"
+            android:layout_height="203dp"
+            android:background="@drawable/rceyclerview_border"
             app:layout_constraintBottom_toTopOf="@+id/grade2_2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.458"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/grade2_1"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/grade2_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="620dp"
+            android:layout_width="409dp"
+            android:layout_height="17dp"
+            android:layout_marginTop="736dp"
             android:gravity="center"
             android:text="2학년 2학기"
             app:layout_constraintEnd_toEndOf="parent"
@@ -92,11 +109,12 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/subject_list_4"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="383dp"
+            android:layout_height="204dp"
+            android:background="@drawable/rceyclerview_border"
             app:layout_constraintBottom_toTopOf="@+id/grade3_1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.476"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/grade2_2"
             app:layout_constraintVertical_bias="0.0" />
@@ -105,7 +123,7 @@
             android:id="@+id/grade3_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="840dp"
+            android:layout_marginTop="968dp"
             android:gravity="center"
             android:text="3학년 1학기"
             app:layout_constraintEnd_toEndOf="parent"
@@ -115,11 +133,12 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/subject_list_5"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="381dp"
+            android:layout_height="198dp"
+            android:background="@drawable/rceyclerview_border"
             app:layout_constraintBottom_toTopOf="@+id/grade3_2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.484"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/grade3_1"
             app:layout_constraintVertical_bias="0.0" />
@@ -128,7 +147,7 @@
             android:id="@+id/grade3_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="1056dp"
+            android:layout_marginTop="1196dp"
             android:gravity="center"
             android:text="3학년 2학기"
             app:layout_constraintEnd_toEndOf="parent"
@@ -138,11 +157,12 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/subject_list_6"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="376dp"
+            android:layout_height="193dp"
+            android:background="@drawable/rceyclerview_border"
             app:layout_constraintBottom_toTopOf="@+id/grade4_1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.468"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/grade3_2"
             app:layout_constraintVertical_bias="0.0" />
@@ -151,30 +171,30 @@
             android:id="@+id/grade4_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="1272dp"
+            android:layout_marginTop="1420dp"
             android:gravity="center"
             android:text="4학년 1학기"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/subject_list_7"
-            android:layout_width="412dp"
-            android:layout_height="168dp"
-            app:layout_constraintBottom_toTopOf="@+id/grade4_2"
+            android:layout_width="377dp"
+            android:layout_height="197dp"
+            android:background="@drawable/rceyclerview_border"
+            app:layout_constraintBottom_toTopOf="@+id/gradeculture"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/grade4_1"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/grade4_2"
+            android:id="@+id/gradeculture"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="1464dp"
+            android:layout_marginTop="1652dp"
             android:gravity="center"
             android:text="필수교양"
             app:layout_constraintEnd_toEndOf="parent"
@@ -184,26 +204,38 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/subject_list_8"
-            android:layout_width="412dp"
-            android:layout_height="163dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="381dp"
+            android:layout_height="210dp"
+            android:background="@drawable/rceyclerview_border"
+            app:layout_constraintBottom_toTopOf="@+id/Confirmbtn"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.533"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/grade4_2"
+            app:layout_constraintTop_toBottomOf="@+id/gradeculture"
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/Confirmbtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="확인"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="264dp"
+            android:layout_height="66dp"
+            android:backgroundTint="#3E3E3E"
+            android:text="저장하기"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/subject_list_8"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/gradeculture"
+            app:layout_constraintVertical_bias="0.701" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="41dp"
+            android:layout_height="97dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Confirmbtn" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

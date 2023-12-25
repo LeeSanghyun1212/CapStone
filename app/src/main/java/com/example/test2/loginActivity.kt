@@ -1,5 +1,6 @@
 package com.example.test2
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.widget.Button
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class loginActivity : AppCompatActivity() {
     private lateinit var emailEditText: EditText
@@ -36,11 +38,30 @@ class loginActivity : AppCompatActivity() {
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
                             // 로그인 성공
-                            Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(this, Test2::class.java)
-                            startActivity(intent)
-                            // 현재 액티비티를 종료합니다.
-                            finish()
+                            val userUid = auth.currentUser?.uid
+                            userUid?.let { uid ->
+                                val db = FirebaseFirestore.getInstance()
+                                db.collection("users").document(uid)
+                                    .get()
+                                    .addOnSuccessListener { document ->
+                                        if (document != null) {
+                                            val realname = document.getString("realname")
+                                            realname?.let {
+                                                // 정보를 프래그먼트로 전달하고 화면 이동
+                                                Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
+                                                val intent = Intent(this, NaviActivity::class.java)
+                                                intent.putExtra("realname", it) // it은 실제로 가져온 이름 데이터입니다.
+                                                startActivity(intent)
+                                                finish()
+                                            }
+                                        } else {
+                                            // Document가 존재하지 않음
+                                        }
+                                    }
+                                    .addOnFailureListener { exception ->
+                                        // 데이터 가져오기 실패
+                                    }
+                            }
                         } else {
                             // 로그인 실패
                             Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show()

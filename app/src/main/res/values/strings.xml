@@ -20,6 +20,8 @@
     <string name="공학설계">공학설계</string>
     <string name="생명과학">생명과학</string>
     <string name="확인완료">확인완료</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
     <!-- 다른 문자열 리소스가 있을 경우 이곳에 추가 -->

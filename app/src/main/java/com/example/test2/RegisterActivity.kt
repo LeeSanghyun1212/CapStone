@@ -2,6 +2,7 @@ package com.example.test2
 
 import android.content.Intent
 import android.os.Bundle
+import android.app.Activity
 import android.os.PatternMatcher
 import android.view.View
 import android.widget.Button
@@ -87,6 +88,7 @@ class RegisterActivity : AppCompatActivity() {
                                 .addOnSuccessListener {
                                     Toast.makeText(this, "회원가입 및 데이터 저장 완료", Toast.LENGTH_LONG)
                                         .show()
+
                                     finish()
                                 }
                                 .addOnFailureListener { e ->
